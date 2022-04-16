@@ -9,7 +9,7 @@
     <!-- TODO: Update blank fragment layout -->
     <Button
         android:id="@+id/btnPlus"
-        android:text="+1"
+        android:text="@string/plusOne"
         android:layout_gravity="center"
         android:background="@color/red"
         android:layout_width="wrap_content"
