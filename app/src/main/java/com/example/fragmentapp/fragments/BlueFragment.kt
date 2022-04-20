@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import com.example.fragmentapp.R
 import com.example.fragmentapp.interfaces.OnFragmentActionListener
 
@@ -19,11 +20,18 @@ private const val ARG_PARAM2 = "param2"
  * Use the [BlueFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class BlueFragment : Fragment() {
+class BlueFragment : Fragment(R.layout.fragment_blue) {
     private var listener: OnFragmentActionListener? = null
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if(context is OnFragmentActionListener){
+            listener = context
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,18 +42,18 @@ class BlueFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_blue, container, false)
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if(context is OnFragmentActionListener){
-            listener = context
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val buttonPlus = view.findViewById<Button>(R.id.btnPlusBlue)
+        buttonPlus.setOnClickListener { listener?.onClickFragmentButton() }
     }
 
     override fun onDetach() {

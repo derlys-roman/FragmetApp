@@ -6,9 +6,8 @@
     android:background="@color/blue"
     tools:context=".fragments.BlueFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <Button
-        android:id="@+id/btnPlus"
+        android:id="@+id/btnPlusBlue"
         android:text="@string/plusOne"
         android:layout_gravity="center"
         android:background="@color/red"
