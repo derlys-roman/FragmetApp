@@ -30,7 +30,8 @@ class MainActivity : AppCompatActivity(), OnFragmentActionListener {
     private fun loadFragment(fragment: Fragment){
         val fragmentTransaction =
             supportFragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.fragmentContainer, fragment)
+        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
+        fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
     }
 }
